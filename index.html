@@ -14,143 +14,86 @@
 
 :root {
 –bg:      #040608;
-–surface: #0a0e14;
-–card:    #0f1520;
-–border:  #1a2336;
+–surface: #080c12;
+–card:    #0c1118;
+–border:  #182030;
 –accent:  #00e5ff;
 –green:   #00ff9d;
 –red:     #ff2d55;
 –yellow:  #ffd60a;
 –purple:  #bf5af2;
 –text:    #dde6f0;
-–muted:   #3a4f66;
-–dim:     #080c12;
+–muted:   #38506a;
 }
 
 - { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 
-body {
-background: var(–bg);
+html, body {
+background: #040608 !important;
 color: var(–text);
 font-family: ‘Syne’, sans-serif;
-min-height: 100vh;
-min-height: 100dvh;
+min-height: 100vh; min-height: 100dvh;
 overflow-x: hidden;
 padding-bottom: env(safe-area-inset-bottom);
 }
 
-@keyframes fadeUp { from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)} }
-@keyframes pulse  { 0%,100%{opacity:1}50%{opacity:0.3} }
-@keyframes glow   { 0%,100%{box-shadow:0 0 8px var(–accent)44}50%{box-shadow:0 0 18px var(–accent)88} }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
 
 /* ── Header ── */
 .header {
-position: sticky; top: 0; z-index: 100;
-padding: 12px 18px;
-padding-top: calc(12px + env(safe-area-inset-top));
-background: #040608ee;
-backdrop-filter: blur(24px);
--webkit-backdrop-filter: blur(24px);
-border-bottom: 1px solid var(–border);
-display: flex; align-items: center; justify-content: space-between;
+position:sticky; top:0; z-index:100;
+padding:12px 18px;
+padding-top:calc(12px + env(safe-area-inset-top));
+background:#040608f0;
+backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+border-bottom:1px solid var(–border);
+display:flex; align-items:center; justify-content:space-between;
 }
-.logo {
-font-family: ‘Syne Mono’, monospace;
-font-size: 17px; letter-spacing: 5px; color: var(–accent);
-text-shadow: 0 0 24px var(–accent)66;
-}
-.live-dot {
-width: 7px; height: 7px; border-radius: 50%;
-background: var(–green); margin-right: 8px; display: inline-block;
-animation: pulse 1.8s ease-in-out infinite;
-box-shadow: 0 0 8px var(–green)88;
-}
+.logo { font-family:‘Syne Mono’,monospace; font-size:17px; letter-spacing:5px; color:var(–accent); text-shadow:0 0 24px var(–accent)66; }
+.live-dot { width:7px; height:7px; border-radius:50%; background:var(–green); margin-right:8px; display:inline-block; animation:pulse 1.8s ease-in-out infinite; box-shadow:0 0 8px var(–green)88; }
 .htime { font-family:‘Syne Mono’,monospace; font-size:12px; color:var(–muted); }
 
 /* ── Symbol Tabs ── */
-.sym-scroll {
-display:flex; gap:8px; overflow-x:auto; padding:12px 16px;
-scrollbar-width:none; background:var(–bg);
-}
+.sym-scroll { display:flex; gap:8px; overflow-x:auto; padding:12px 16px; scrollbar-width:none; background:var(–bg); }
 .sym-scroll::-webkit-scrollbar { display:none; }
-.sym-btn {
-flex-shrink:0; padding:6px 16px; border-radius:20px;
-border:1px solid var(–border); background:var(–card);
-color:var(–muted); font-size:12px; font-family:‘Syne Mono’,monospace;
-cursor:pointer; transition:all 0.2s; white-space:nowrap;
-}
-.sym-btn.active {
-background:var(–accent)18; border-color:var(–accent)77;
-color:var(–accent); box-shadow:0 0 14px var(–accent)22;
-}
+.sym-btn { flex-shrink:0; padding:6px 16px; border-radius:20px; border:1px solid var(–border); background:var(–card); color:var(–muted); font-size:12px; font-family:‘Syne Mono’,monospace; cursor:pointer; transition:all 0.2s; white-space:nowrap; }
+.sym-btn.active { background:var(–accent)18; border-color:var(–accent)77; color:var(–accent); box-shadow:0 0 14px var(–accent)22; }
 
 /* ── Price Hero ── */
-.price-hero { padding:4px 18px 16px; animation:fadeUp 0.4s ease; }
+.price-hero { padding:4px 18px 16px; background:var(–bg); }
 .price-label { font-size:11px; color:var(–muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
-.price-big {
-font-family:‘Syne Mono’,monospace;
-font-size: clamp(34px,9vw,46px);
-font-weight:800; line-height:1; letter-spacing:-1px;
-transition:color 0.3s;
-}
+.price-big { font-family:‘Syne Mono’,monospace; font-size:clamp(34px,9vw,46px); font-weight:800; line-height:1; letter-spacing:-1px; transition:color 0.3s; }
 .price-big.up   { color:var(–green); text-shadow:0 0 32px var(–green)44; }
 .price-big.down { color:var(–red);   text-shadow:0 0 32px var(–red)44; }
 .price-big.neu  { color:var(–text); }
 .price-sub { font-size:14px; font-family:‘Syne Mono’,monospace; margin-top:5px; }
 
 /* ── Stats Grid ── */
-.stats-grid {
-display:grid; grid-template-columns:1fr 1fr;
-gap:8px; padding:0 16px 12px;
-}
-.stat-card {
-background:var(–card); border:1px solid var(–border);
-border-radius:14px; padding:12px 14px;
-}
+.stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:0 16px 12px; background:var(–bg); }
+.stat-card { background:var(–card); border:1px solid var(–border); border-radius:14px; padding:12px 14px; }
 .stat-lbl { font-size:10px; color:var(–muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
 .stat-val { font-family:‘Syne Mono’,monospace; font-size:15px; color:var(–text); }
 
 /* ── Chart ── */
-.chart-wrap {
-margin:0 16px 12px;
-background:var(–card); border:1px solid var(–border); border-radius:16px; overflow:hidden;
-}
-.chart-hdr {
-display:flex; justify-content:space-between; align-items:center;
-padding:12px 14px 8px;
-}
+.chart-wrap { margin:0 16px 12px; background:var(–card); border:1px solid var(–border); border-radius:16px; overflow:hidden; }
+.chart-hdr { display:flex; justify-content:space-between; align-items:center; padding:12px 14px 8px; background:var(–card); }
 .chart-ttl { font-size:11px; color:var(–muted); letter-spacing:1px; text-transform:uppercase; }
 .tf-row { display:flex; gap:4px; }
-.tf-btn {
-padding:3px 8px; border-radius:6px; border:none;
-background:transparent; color:var(–muted); font-size:11px;
-font-family:‘Syne’,sans-serif; cursor:pointer; transition:all 0.15s;
-}
+.tf-btn { padding:3px 8px; border-radius:6px; border:none; background:transparent; color:var(–muted); font-size:11px; font-family:‘Syne’,sans-serif; cursor:pointer; transition:all 0.15s; }
 .tf-btn.active { background:var(–accent)22; color:var(–accent); }
-canvas { display:block; width:100%; }
+canvas { display:block; width:100%; background:#0c1118; }
 
 /* ── Indicators ── */
-.inds {
-margin:0 16px 12px;
-display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;
-}
-.ind-card {
-background:var(–card); border:1px solid var(–border);
-border-radius:12px; padding:10px 12px; text-align:center;
-}
+.inds { margin:0 16px 12px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
+.ind-card { background:var(–card); border:1px solid var(–border); border-radius:12px; padding:10px 12px; text-align:center; }
 .ind-lbl { font-size:9px; color:var(–muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
 .ind-val { font-family:‘Syne Mono’,monospace; font-size:14px; font-weight:700; }
 .ind-bar { height:3px; background:var(–border); border-radius:2px; margin-top:6px; overflow:hidden; }
 .ind-fill { height:100%; border-radius:2px; transition:width 0.5s ease; }
+.upd { text-align:center; font-size:10px; color:var(–muted); padding:4px 0 8px; font-family:‘Syne Mono’,monospace; background:var(–bg); }
 
-.upd { text-align:center; font-size:10px; color:var(–muted); padding:4px 0 8px; font-family:‘Syne Mono’,monospace; }
-
-/* ── Signal page ── */
-.sig-banner {
-margin:0 16px 12px; padding:16px;
-border-radius:16px; display:flex; align-items:center; gap:14px;
-transition:all 0.3s;
-}
+/* ── Signal ── */
+.sig-banner { margin:0 16px 12px; padding:16px; border-radius:16px; display:flex; align-items:center; gap:14px; transition:all 0.3s; }
 .sig-buy  { background:var(–green)12; border:1px solid var(–green)44; }
 .sig-sell { background:var(–red)12;   border:1px solid var(–red)44; }
 .sig-none { background:var(–card);    border:1px solid var(–border); }
@@ -159,63 +102,31 @@ transition:all 0.3s;
 .sig-desc  { font-size:11px; color:var(–muted); margin-top:3px; }
 
 .rsi-gauge { position:relative; height:6px; background:var(–border); border-radius:3px; margin:10px 0 5px; }
-.rsi-track { position:absolute; height:100%; border-radius:3px; width:100%;
-background:linear-gradient(90deg,var(–green),var(–yellow),var(–red)); }
-.rsi-thumb {
-position:absolute; top:50%; transform:translate(-50%,-50%);
-width:13px; height:13px; border-radius:50%;
-background:white; border:2px solid var(–bg);
-box-shadow:0 0 8px rgba(0,0,0,0.6); transition:left 0.5s ease;
-}
+.rsi-track { position:absolute; height:100%; border-radius:3px; width:100%; background:linear-gradient(90deg,var(–green),var(–yellow),var(–red)); }
+.rsi-thumb { position:absolute; top:50%; transform:translate(-50%,-50%); width:13px; height:13px; border-radius:50%; background:white; border:2px solid var(–bg); box-shadow:0 0 8px rgba(0,0,0,0.8); transition:left 0.5s ease; }
 .rsi-lbls { display:flex; justify-content:space-between; font-size:9px; font-family:‘Syne Mono’,monospace; }
 
 /* ── Watch ── */
-.watch-row {
-background:var(–card); border:1px solid var(–border);
-border-radius:14px; padding:14px 16px;
-display:flex; align-items:center; justify-content:space-between;
-cursor:pointer; transition:all 0.15s;
-}
-.watch-row:active { background:var(–dim); transform:scale(0.98); }
+.watch-row { background:var(–card); border:1px solid var(–border); border-radius:14px; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; transition:all 0.15s; }
+.watch-row:active { opacity:0.7; transform:scale(0.98); }
 
 /* ── Bottom Nav ── */
-.bnav {
-position:fixed; bottom:0; left:0; right:0;
-background:#040608ee;
-backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
-border-top:1px solid var(–border);
-display:flex; padding-bottom:env(safe-area-inset-bottom);
-}
-.nbtn {
-flex:1; padding:11px 0; border:none; background:transparent;
-color:var(–muted); font-size:10px; font-family:‘Syne’,sans-serif;
-cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:3px;
-transition:color 0.15s;
-}
+.bnav { position:fixed; bottom:0; left:0; right:0; background:#040608f0; backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border-top:1px solid var(–border); display:flex; padding-bottom:env(safe-area-inset-bottom); }
+.nbtn { flex:1; padding:11px 0; border:none; background:transparent; color:var(–muted); font-size:10px; font-family:‘Syne’,sans-serif; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:3px; transition:color 0.15s; }
 .nbtn.active { color:var(–accent); }
 .nicon { font-size:20px; line-height:1; }
 
 /* ── Pages ── */
-.page { display:none; padding-bottom:80px; }
+.page { display:none; padding-bottom:80px; background:var(–bg); min-height:100vh; }
 .page.active { display:block; }
 
-/* ── Section title ── */
+/* ── Cards ── */
+.info-card { background:var(–card); border:1px solid var(–border); border-radius:14px; padding:16px; margin:0 16px 12px; }
+.info-card-ttl { font-size:11px; color:var(–muted); letter-spacing:1px; margin-bottom:10px; }
 .sec-ttl { font-size:11px; color:var(–muted); letter-spacing:2px; text-transform:uppercase; padding:0 16px 8px; }
 
-/* ── Info cards ── */
-.info-card {
-background:var(–card); border:1px solid var(–border);
-border-radius:14px; padding:16px; margin:0 16px 12px;
-}
-.info-card-ttl { font-size:11px; color:var(–muted); letter-spacing:1px; margin-bottom:10px; }
-
 /* ── Toast ── */
-.toast {
-position:fixed; bottom:90px; left:16px; right:16px;
-background:var(–card); border:1px solid var(–border);
-border-radius:12px; padding:12px 16px; font-size:13px; z-index:999;
-transform:translateY(20px); opacity:0; transition:all 0.3s; pointer-events:none;
-}
+.toast { position:fixed; bottom:90px; left:16px; right:16px; background:var(–card); border:1px solid var(–border); border-radius:12px; padding:12px 16px; font-size:13px; z-index:999; transform:translateY(20px); opacity:0; transition:all 0.3s; pointer-events:none; }
 .toast.show { transform:translateY(0); opacity:1; }
 .toast.ok  { border-color:var(–green)55; color:var(–green); }
 .toast.err { border-color:var(–red)55;   color:var(–red); }
@@ -224,14 +135,10 @@ transform:translateY(20px); opacity:0; transition:all 0.3s; pointer-events:none;
 </head>
 <body>
 
-<!-- HEADER -->
-
 <div class="header">
   <div><span class="live-dot"></span><span class="logo">CYPHER</span></div>
   <span class="htime" id="htime">--:--:--</span>
 </div>
-
-<!-- BOTTOM NAV -->
 
 <div class="bnav">
   <button class="nbtn active" onclick="gotoPage('market',this)"><span class="nicon">📊</span>行情</button>
@@ -240,10 +147,10 @@ transform:translateY(20px); opacity:0; transition:all 0.3s; pointer-events:none;
   <button class="nbtn" onclick="gotoPage('info',this)"><span class="nicon">⚙️</span>設定</button>
 </div>
 
-<!-- ══ PAGE: 行情 ══ -->
+<!-- 行情 -->
 
 <div id="page-market" class="page active">
-  <div class="sym-scroll" id="symTabs">
+  <div class="sym-scroll">
     <button class="sym-btn active" onclick="pickSym('BTC-USDT',this)">BTC</button>
     <button class="sym-btn" onclick="pickSym('ETH-USDT',this)">ETH</button>
     <button class="sym-btn" onclick="pickSym('SOL-USDT',this)">SOL</button>
@@ -252,20 +159,17 @@ transform:translateY(20px); opacity:0; transition:all 0.3s; pointer-events:none;
     <button class="sym-btn" onclick="pickSym('DOGE-USDT',this)">DOGE</button>
     <button class="sym-btn" onclick="pickSym('ADA-USDT',this)">ADA</button>
   </div>
-
   <div class="price-hero">
     <div class="price-label" id="pLabel">BTC / USDT</div>
     <div class="price-big neu" id="pMain">載入中...</div>
     <div class="price-sub" id="pSub" style="color:var(--muted)">—</div>
   </div>
-
   <div class="stats-grid">
     <div class="stat-card"><div class="stat-lbl">24H 最高</div><div class="stat-val" id="sHigh" style="color:var(--green)">—</div></div>
     <div class="stat-card"><div class="stat-lbl">24H 最低</div><div class="stat-val" id="sLow"  style="color:var(--red)">—</div></div>
     <div class="stat-card"><div class="stat-lbl">買價 BID</div><div class="stat-val" id="sBid">—</div></div>
     <div class="stat-card"><div class="stat-lbl">賣價 ASK</div><div class="stat-val" id="sAsk">—</div></div>
   </div>
-
   <div class="chart-wrap">
     <div class="chart-hdr">
       <span class="chart-ttl">K 線圖</span>
@@ -279,77 +183,44 @@ transform:translateY(20px); opacity:0; transition:all 0.3s; pointer-events:none;
     </div>
     <canvas id="chart" height="150"></canvas>
   </div>
-
   <div class="inds">
-    <div class="ind-card">
-      <div class="ind-lbl">RSI 14</div>
-      <div class="ind-val" id="iRSI" style="color:var(--yellow)">—</div>
-      <div class="ind-bar"><div class="ind-fill" id="iRSIBar" style="width:50%;background:var(--yellow)"></div></div>
-    </div>
-    <div class="ind-card">
-      <div class="ind-lbl">MA 5</div>
-      <div class="ind-val" id="iMA5" style="color:var(--purple)">—</div>
-      <div class="ind-bar"><div class="ind-fill" style="width:100%;background:var(--purple)"></div></div>
-    </div>
-    <div class="ind-card">
-      <div class="ind-lbl">MA 20</div>
-      <div class="ind-val" id="iMA20" style="color:var(--yellow)">—</div>
-      <div class="ind-bar"><div class="ind-fill" style="width:100%;background:var(--yellow)"></div></div>
-    </div>
+    <div class="ind-card"><div class="ind-lbl">RSI 14</div><div class="ind-val" id="iRSI" style="color:var(--yellow)">—</div><div class="ind-bar"><div class="ind-fill" id="iRSIBar" style="width:50%;background:var(--yellow)"></div></div></div>
+    <div class="ind-card"><div class="ind-lbl">MA 5</div><div class="ind-val" id="iMA5" style="color:var(--purple)">—</div><div class="ind-bar"><div class="ind-fill" style="width:100%;background:var(--purple)"></div></div></div>
+    <div class="ind-card"><div class="ind-lbl">MA 20</div><div class="ind-val" id="iMA20" style="color:var(--yellow)">—</div><div class="ind-bar"><div class="ind-fill" style="width:100%;background:var(--yellow)"></div></div></div>
   </div>
   <div class="upd" id="upd">等待資料...</div>
 </div>
 
-<!-- ══ PAGE: 訊號 ══ -->
+<!-- 訊號 -->
 
 <div id="page-signal" class="page">
   <div style="padding:16px 16px 8px"><div class="sec-ttl" style="padding:0">策略訊號分析</div></div>
-
   <div class="sig-banner sig-none" id="sigBanner">
     <div class="sig-icon" id="sigIcon">🔍</div>
-    <div>
-      <div class="sig-title" id="sigTitle" style="color:var(--muted)">分析中...</div>
-      <div class="sig-desc"  id="sigDesc">收集足夠資料後產生訊號</div>
-    </div>
+    <div><div class="sig-title" id="sigTitle" style="color:var(--muted)">分析中...</div><div class="sig-desc" id="sigDesc">收集足夠資料後產生訊號</div></div>
   </div>
-
   <div class="info-card">
     <div class="info-card-ttl">RSI 超買超賣指標</div>
     <div style="font-family:'Syne Mono',monospace;font-size:26px;font-weight:700" id="rsiLg">—</div>
-    <div class="rsi-gauge">
-      <div class="rsi-track"></div>
-      <div class="rsi-thumb" id="rsiThumb" style="left:50%"></div>
-    </div>
-    <div class="rsi-lbls">
-      <span style="color:var(--green)">超賣 30</span>
-      <span style="color:var(--muted)">中性 50</span>
-      <span style="color:var(--red)">超買 70</span>
-    </div>
+    <div class="rsi-gauge"><div class="rsi-track"></div><div class="rsi-thumb" id="rsiThumb" style="left:50%"></div></div>
+    <div class="rsi-lbls"><span style="color:var(--green)">超賣 30</span><span style="color:var(--muted)">中性 50</span><span style="color:var(--red)">超買 70</span></div>
   </div>
-
   <div class="info-card">
     <div class="info-card-ttl">均線交叉狀態</div>
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <div>
-        <div style="font-size:10px;color:var(--muted)">MA5</div>
-        <div style="font-family:'Syne Mono',monospace;font-size:16px" id="sMA5">—</div>
-      </div>
+      <div><div style="font-size:10px;color:var(--muted)">MA5</div><div style="font-family:'Syne Mono',monospace;font-size:16px" id="sMA5">—</div></div>
       <div style="font-size:28px" id="maIcon">➡️</div>
-      <div style="text-align:right">
-        <div style="font-size:10px;color:var(--muted)">MA20</div>
-        <div style="font-family:'Syne Mono',monospace;font-size:16px" id="sMA20">—</div>
-      </div>
+      <div style="text-align:right"><div style="font-size:10px;color:var(--muted)">MA20</div><div style="font-family:'Syne Mono',monospace;font-size:16px" id="sMA20">—</div></div>
     </div>
     <div style="margin-top:8px;font-size:12px;color:var(--muted)" id="maStatus">等待資料...</div>
   </div>
-
   <div style="padding:0 16px">
     <div class="sec-ttl" style="padding-left:0;margin-bottom:8px">訊號記錄</div>
     <div id="sigLog"><div style="color:var(--muted);font-size:12px;text-align:center;padding:20px">尚無訊號</div></div>
   </div>
 </div>
 
-<!-- ══ PAGE: 自選 ══ -->
+<!-- 自選 -->
 
 <div id="page-watch" class="page">
   <div style="padding:16px 16px 8px"><div class="sec-ttl" style="padding:0">自選行情</div></div>
@@ -358,238 +229,185 @@ transform:translateY(20px); opacity:0; transition:all 0.3s; pointer-events:none;
   </div>
 </div>
 
-<!-- ══ PAGE: 設定 ══ -->
+<!-- 設定 -->
 
 <div id="page-info" class="page">
   <div style="padding:16px">
     <div class="sec-ttl" style="padding-left:0;margin-bottom:12px">關於 CYPHER BOT</div>
-
-```
-<div class="info-card">
-  <div class="info-card-ttl">📱 安裝到主畫面</div>
-  <div style="font-size:13px;color:var(--text);line-height:2">
-    1. 用 <strong style="color:var(--accent)">Safari</strong> 開啟本頁<br>
-    2. 點底部 <strong style="color:var(--accent)">分享按鈕 ↑</strong><br>
-    3. 選「<strong style="color:var(--accent)">加入主畫面</strong>」<br>
-    4. 像 App 一樣使用 ✅
-  </div>
-</div>
-
-<div class="info-card">
-  <div class="info-card-ttl">📡 資料來源</div>
-  <div style="font-size:13px;color:var(--text);line-height:2">
-    ✅ OKX 公開 API（真實即時）<br>
-    ✅ 無需帳號，完全免費<br>
-    ✅ 每 5 秒自動更新行情<br>
-    ✅ 每 30 秒更新 K 線指標
-  </div>
-</div>
-
-<div class="info-card">
-  <div class="info-card-ttl">📖 指標說明</div>
-  <div style="font-size:13px;color:var(--text);line-height:2">
-    📈 <strong style="color:var(--green)">MA金叉</strong>：MA5 上穿 MA20 → 買入參考<br>
-    📉 <strong style="color:var(--red)">MA死叉</strong>：MA5 下穿 MA20 → 賣出參考<br>
-    🔴 <strong>RSI &gt; 70</strong>：超買，注意回調風險<br>
-    🟢 <strong>RSI &lt; 30</strong>：超賣，注意反彈機會
-  </div>
-</div>
-
-<div style="background:var(--yellow)0d;border:1px solid var(--yellow)33;border-radius:14px;padding:14px;margin-bottom:12px">
-  <div style="font-size:12px;color:var(--yellow);line-height:1.7">
-    ⚠️ 本工具僅供參考，不構成投資建議。加密貨幣投資有風險，請謹慎評估。
-  </div>
-</div>
-```
-
+    <div class="info-card">
+      <div class="info-card-ttl">📱 安裝到主畫面</div>
+      <div style="font-size:13px;color:var(--text);line-height:2">
+        1. 用 <strong style="color:var(--accent)">Safari</strong> 開啟本頁<br>
+        2. 點底部 <strong style="color:var(--accent)">分享按鈕 ↑</strong><br>
+        3. 選「<strong style="color:var(--accent)">加入主畫面</strong>」<br>
+        4. 像 App 一樣使用 ✅
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-ttl">📡 資料來源</div>
+      <div style="font-size:13px;color:var(--text);line-height:2">
+        ✅ OKX 公開 API（真實即時）<br>
+        ✅ 無需帳號，完全免費<br>
+        ✅ 每 5 秒自動更新行情<br>
+        ✅ 每 30 秒更新 K 線指標
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-ttl">📖 指標說明</div>
+      <div style="font-size:13px;color:var(--text);line-height:2">
+        📈 <strong style="color:var(--green)">MA金叉</strong>：MA5 上穿 MA20 → 買入參考<br>
+        📉 <strong style="color:var(--red)">MA死叉</strong>：MA5 下穿 MA20 → 賣出參考<br>
+        🔴 <strong>RSI &gt; 70</strong>：超買，注意回調風險<br>
+        🟢 <strong>RSI &lt; 30</strong>：超賣，注意反彈機會
+      </div>
+    </div>
+    <div style="background:var(--yellow)0d;border:1px solid var(--yellow)33;border-radius:14px;padding:14px">
+      <div style="font-size:12px;color:var(--yellow);line-height:1.7">⚠️ 本工具僅供參考，不構成投資建議。加密貨幣投資有風險，請謹慎評估。</div>
+    </div>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-let sym = 'BTC-USDT', tf = '1H';
-let chartData = [], sigLog = [];
-let refreshTick = null, candleTick = null;
-const WATCHES = ['BTC-USDT','ETH-USDT','SOL-USDT','BNB-USDT','XRP-USDT','DOGE-USDT'];
+let sym='BTC-USDT', tf='1H', chartData=[], sigLog=[];
+const WATCHES=['BTC-USDT','ETH-USDT','SOL-USDT','BNB-USDT','XRP-USDT','DOGE-USDT'];
+const fmt=(n,d=2)=>n!=null?Number(n).toLocaleString('en',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
 
-const fmt = (n,d=2) => n!=null ? Number(n).toLocaleString('en',{minimumFractionDigits:d,maximumFractionDigits:d}) : '—';
+setInterval(()=>document.getElementById('htime').textContent=new Date().toLocaleTimeString('zh-TW'),1000);
 
-// ── Clock
-setInterval(() => document.getElementById('htime').textContent = new Date().toLocaleTimeString('zh-TW'), 1000);
-
-// ── Nav
-function gotoPage(name, btn) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nbtn').forEach(b => b.classList.remove('active'));
+function gotoPage(name,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nbtn').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
   btn.classList.add('active');
-  if (name==='watch') loadWatch();
-  if (name==='signal') updateSigPage();
+  if(name==='watch')loadWatch();
+  if(name==='signal')updateSig();
 }
 
-function pickSym(s, btn) {
-  sym = s; chartData = [];
-  document.querySelectorAll('.sym-btn').forEach(b => b.classList.remove('active'));
+function pickSym(s,btn){
+  sym=s; chartData=[];
+  document.querySelectorAll('.sym-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById('pMain').textContent = '載入中...';
+  document.getElementById('pMain').textContent='載入中...';
   doTicker(); doCandles();
 }
 
-function pickTF(t, btn) {
-  tf = t; chartData = [];
-  document.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('active'));
+function pickTF(t,btn){
+  tf=t; chartData=[];
+  document.querySelectorAll('.tf-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   doCandles();
 }
 
-// ── Ticker
-async function doTicker() {
-  try {
-    const r = await fetch(`https://www.okx.com/api/v5/market/ticker?instId=${sym}`);
-    const d = await r.json();
-    if (d.code !== '0') return;
-    const t = d.data[0];
-    const last = parseFloat(t.last);
-    const open = parseFloat(t.open24h);
-    const chg  = last - open;
-    const pct  = chg / open * 100;
-    const up   = chg >= 0;
-
-    const el = document.getElementById('pMain');
-    el.textContent = '$' + fmt(last);
-    el.className   = 'price-big ' + (up ? 'up' : 'down');
-
-    document.getElementById('pLabel').textContent = sym.replace('-',' / ');
-    const sub = document.getElementById('pSub');
-    sub.textContent = `${up?'+':''}${fmt(chg)} (${up?'+':''}${pct.toFixed(2)}%)`;
-    sub.style.color = up ? 'var(--green)' : 'var(--red)';
-
-    document.getElementById('sHigh').textContent = '$' + fmt(parseFloat(t.high24h));
-    document.getElementById('sLow').textContent  = '$' + fmt(parseFloat(t.low24h));
-    document.getElementById('sBid').textContent  = '$' + fmt(parseFloat(t.bidPx));
-    document.getElementById('sAsk').textContent  = '$' + fmt(parseFloat(t.askPx));
-    document.getElementById('upd').textContent   = '更新時間：' + new Date().toLocaleTimeString('zh-TW');
-    updateSigPage();
-  } catch(e) {}
+async function doTicker(){
+  try{
+    const r=await fetch(`https://www.okx.com/api/v5/market/ticker?instId=${sym}`);
+    const d=await r.json();
+    if(d.code!=='0')return;
+    const t=d.data[0];
+    const last=parseFloat(t.last),open=parseFloat(t.open24h);
+    const chg=last-open,pct=chg/open*100,up=chg>=0;
+    const el=document.getElementById('pMain');
+    el.textContent='$'+fmt(last);
+    el.className='price-big '+(up?'up':'down');
+    document.getElementById('pLabel').textContent=sym.replace('-',' / ');
+    const sub=document.getElementById('pSub');
+    sub.textContent=`${up?'+':''}${fmt(chg)} (${up?'+':''}${pct.toFixed(2)}%)`;
+    sub.style.color=up?'var(--green)':'var(--red)';
+    document.getElementById('sHigh').textContent='$'+fmt(parseFloat(t.high24h));
+    document.getElementById('sLow').textContent='$'+fmt(parseFloat(t.low24h));
+    document.getElementById('sBid').textContent='$'+fmt(parseFloat(t.bidPx));
+    document.getElementById('sAsk').textContent='$'+fmt(parseFloat(t.askPx));
+    document.getElementById('upd').textContent='更新時間：'+new Date().toLocaleTimeString('zh-TW');
+    updateSig();
+  }catch(e){}
 }
 
-// ── Candles
-async function doCandles() {
-  try {
-    const r = await fetch(`https://www.okx.com/api/v5/market/candles?instId=${sym}&bar=${tf}&limit=80`);
-    const d = await r.json();
-    if (d.code !== '0') return;
-    const raw = d.data.reverse();
-    const closes = raw.map(c => parseFloat(c[4]));
-    const ma5  = sma(closes, 5);
-    const ma20 = sma(closes, 20);
-    const rsi  = calcRSI(closes, 14);
-
-    chartData = raw.map((c,i) => ({
-      o: parseFloat(c[1]), h: parseFloat(c[2]),
-      l: parseFloat(c[3]), c: parseFloat(c[4]),
-      ma5: ma5[i], ma20: ma20[i], rsi: rsi[i],
-    }));
+async function doCandles(){
+  try{
+    const r=await fetch(`https://www.okx.com/api/v5/market/candles?instId=${sym}&bar=${tf}&limit=80`);
+    const d=await r.json();
+    if(d.code!=='0')return;
+    const raw=d.data.reverse();
+    const closes=raw.map(c=>parseFloat(c[4]));
+    const ma5=sma(closes,5),ma20=sma(closes,20),rsi=calcRSI(closes,14);
+    chartData=raw.map((c,i)=>({o:parseFloat(c[1]),h:parseFloat(c[2]),l:parseFloat(c[3]),c:parseFloat(c[4]),ma5:ma5[i],ma20:ma20[i],rsi:rsi[i]}));
     drawChart();
-
-    const lRSI  = [...rsi].reverse().find(v => v!==null);
-    const lMA5  = [...ma5].reverse().find(v => v!==null);
-    const lMA20 = [...ma20].reverse().find(v => v!==null);
-
-    // Indicators row
-    const rE = document.getElementById('iRSI');
-    rE.textContent = lRSI ? lRSI.toFixed(1) : '—';
-    rE.style.color = lRSI>70?'var(--red)':lRSI<30?'var(--green)':'var(--yellow)';
-    const rPct = lRSI ? Math.min(Math.max(lRSI,0),100) : 50;
-    const rBar = document.getElementById('iRSIBar');
-    rBar.style.width = rPct+'%';
-    rBar.style.background = lRSI>70?'var(--red)':lRSI<30?'var(--green)':'var(--yellow)';
-    document.getElementById('iMA5').textContent  = lMA5  ? '$'+fmt(lMA5,0)  : '—';
-    document.getElementById('iMA20').textContent = lMA20 ? '$'+fmt(lMA20,0) : '—';
-
-    // Signal page RSI
-    document.getElementById('rsiLg').textContent = lRSI ? lRSI.toFixed(1) : '—';
-    document.getElementById('rsiLg').style.color = lRSI>70?'var(--red)':lRSI<30?'var(--green)':'var(--yellow)';
-    document.getElementById('rsiThumb').style.left = rPct+'%';
-    document.getElementById('sMA5').textContent  = lMA5  ? '$'+fmt(lMA5,0)  : '—';
-    document.getElementById('sMA20').textContent = lMA20 ? '$'+fmt(lMA20,0) : '—';
-
-    // MA cross
-    const n = closes.length - 1;
-    if (ma5[n]&&ma5[n-1]&&ma20[n]&&ma20[n-1]) {
-      if (ma5[n]>ma20[n]&&ma5[n-1]<=ma20[n-1]) {
+    const lRSI=[...rsi].reverse().find(v=>v!==null);
+    const lMA5=[...ma5].reverse().find(v=>v!==null);
+    const lMA20=[...ma20].reverse().find(v=>v!==null);
+    const rE=document.getElementById('iRSI');
+    rE.textContent=lRSI?lRSI.toFixed(1):'—';
+    rE.style.color=lRSI>70?'var(--red)':lRSI<30?'var(--green)':'var(--yellow)';
+    const rPct=lRSI?Math.min(Math.max(lRSI,0),100):50;
+    const rBar=document.getElementById('iRSIBar');
+    rBar.style.width=rPct+'%';
+    rBar.style.background=lRSI>70?'var(--red)':lRSI<30?'var(--green)':'var(--yellow)';
+    document.getElementById('iMA5').textContent=lMA5?'$'+fmt(lMA5,0):'—';
+    document.getElementById('iMA20').textContent=lMA20?'$'+fmt(lMA20,0):'—';
+    document.getElementById('rsiLg').textContent=lRSI?lRSI.toFixed(1):'—';
+    document.getElementById('rsiLg').style.color=lRSI>70?'var(--red)':lRSI<30?'var(--green)':'var(--yellow)';
+    document.getElementById('rsiThumb').style.left=rPct+'%';
+    document.getElementById('sMA5').textContent=lMA5?'$'+fmt(lMA5,0):'—';
+    document.getElementById('sMA20').textContent=lMA20?'$'+fmt(lMA20,0):'—';
+    const n=closes.length-1;
+    if(ma5[n]&&ma5[n-1]&&ma20[n]&&ma20[n-1]){
+      if(ma5[n]>ma20[n]&&ma5[n-1]<=ma20[n-1]){
         document.getElementById('maIcon').textContent='🟢';
         document.getElementById('maStatus').textContent='✅ MA5 上穿 MA20 — 金叉買入訊號';
         document.getElementById('maStatus').style.color='var(--green)';
-        addSigLog('BUY','MA金叉',closes[n]);
-      } else if (ma5[n]<ma20[n]&&ma5[n-1]>=ma20[n-1]) {
+        addLog('BUY','MA金叉',closes[n]);
+      }else if(ma5[n]<ma20[n]&&ma5[n-1]>=ma20[n-1]){
         document.getElementById('maIcon').textContent='🔴';
         document.getElementById('maStatus').textContent='⚠️ MA5 下穿 MA20 — 死叉賣出訊號';
         document.getElementById('maStatus').style.color='var(--red)';
-        addSigLog('SELL','MA死叉',closes[n]);
-      } else if (ma5[n]>ma20[n]) {
+        addLog('SELL','MA死叉',closes[n]);
+      }else if(ma5[n]>ma20[n]){
         document.getElementById('maIcon').textContent='📈';
         document.getElementById('maStatus').textContent='MA5 > MA20 — 多頭趨勢中';
         document.getElementById('maStatus').style.color='var(--green)';
-      } else {
+      }else{
         document.getElementById('maIcon').textContent='📉';
         document.getElementById('maStatus').textContent='MA5 < MA20 — 空頭趨勢中';
         document.getElementById('maStatus').style.color='var(--muted)';
       }
     }
-    updateSigPage();
-  } catch(e) {}
+    updateSig();
+  }catch(e){}
 }
 
-// ── Signal page
-function updateSigPage() {
-  if (!chartData.length) return;
-  const closes = chartData.map(d => d.c);
-  const ma5  = sma(closes, 5);
-  const ma20 = sma(closes, 20);
-  const rsi  = calcRSI(closes, 14);
-  const n = closes.length - 1;
-  const lRSI = [...rsi].reverse().find(v => v!==null);
-  let score = 0, reasons = [];
-
-  if (ma5[n]&&ma5[n-1]&&ma20[n]&&ma20[n-1]) {
-    if (ma5[n]>ma20[n]&&ma5[n-1]<=ma20[n-1])      { score+=2; reasons.push('MA金叉'); }
-    else if (ma5[n]<ma20[n]&&ma5[n-1]>=ma20[n-1])  { score-=2; reasons.push('MA死叉'); }
-    else if (ma5[n]>ma20[n]) score+=0.5;
-    else score-=0.5;
+function updateSig(){
+  if(!chartData.length)return;
+  const closes=chartData.map(d=>d.c);
+  const ma5=sma(closes,5),ma20=sma(closes,20),rsi=calcRSI(closes,14);
+  const n=closes.length-1;
+  const lRSI=[...rsi].reverse().find(v=>v!==null);
+  let score=0,reasons=[];
+  if(ma5[n]&&ma5[n-1]&&ma20[n]&&ma20[n-1]){
+    if(ma5[n]>ma20[n]&&ma5[n-1]<=ma20[n-1]){score+=2;reasons.push('MA金叉');}
+    else if(ma5[n]<ma20[n]&&ma5[n-1]>=ma20[n-1]){score-=2;reasons.push('MA死叉');}
+    else if(ma5[n]>ma20[n])score+=0.5;else score-=0.5;
   }
-  if (lRSI) {
-    if (lRSI<30)      { score+=1.5; reasons.push(`RSI超賣(${lRSI.toFixed(0)})`); }
-    else if (lRSI>70) { score-=1.5; reasons.push(`RSI超買(${lRSI.toFixed(0)})`); }
+  if(lRSI){
+    if(lRSI<30){score+=1.5;reasons.push(`RSI超賣(${lRSI.toFixed(0)})`);}
+    else if(lRSI>70){score-=1.5;reasons.push(`RSI超買(${lRSI.toFixed(0)})`);}
   }
-
-  const b = document.getElementById('sigBanner');
-  const ico = document.getElementById('sigIcon');
-  const ttl = document.getElementById('sigTitle');
-  const dsc = document.getElementById('sigDesc');
-
-  if (score >= 2) {
-    b.className='sig-banner sig-buy'; ico.textContent='🟢';
-    ttl.textContent='買入訊號'; ttl.style.color='var(--green)';
-    dsc.textContent = reasons.join(' · ');
-  } else if (score <= -2) {
-    b.className='sig-banner sig-sell'; ico.textContent='🔴';
-    ttl.textContent='賣出訊號'; ttl.style.color='var(--red)';
-    dsc.textContent = reasons.join(' · ');
-  } else {
-    b.className='sig-banner sig-none'; ico.textContent='⏸';
-    ttl.textContent='觀望中'; ttl.style.color='var(--muted)';
-    dsc.textContent = `分數 ${score.toFixed(1)} — 訊號尚未達到條件`;
-  }
+  const b=document.getElementById('sigBanner');
+  const ico=document.getElementById('sigIcon');
+  const ttl=document.getElementById('sigTitle');
+  const dsc=document.getElementById('sigDesc');
+  if(score>=2){b.className='sig-banner sig-buy';ico.textContent='🟢';ttl.textContent='買入訊號';ttl.style.color='var(--green)';dsc.textContent=reasons.join(' · ');}
+  else if(score<=-2){b.className='sig-banner sig-sell';ico.textContent='🔴';ttl.textContent='賣出訊號';ttl.style.color='var(--red)';dsc.textContent=reasons.join(' · ');}
+  else{b.className='sig-banner sig-none';ico.textContent='⏸';ttl.textContent='觀望中';ttl.style.color='var(--muted)';dsc.textContent=`分數 ${score.toFixed(1)} — 訊號尚未達到條件`;}
 }
 
-function addSigLog(type, reason, price) {
-  if (sigLog.find(s=>s.type===type&&s.reason===reason&&Date.now()-s.t<300000)) return;
+function addLog(type,reason,price){
+  if(sigLog.find(s=>s.type===type&&s.reason===reason&&Date.now()-s.t<300000))return;
   sigLog.unshift({type,reason,price,t:Date.now()});
-  if (sigLog.length>20) sigLog.pop();
-  const el = document.getElementById('sigLog');
-  el.innerHTML = sigLog.slice(0,10).map(s=>`
+  if(sigLog.length>20)sigLog.pop();
+  const el=document.getElementById('sigLog');
+  el.innerHTML=sigLog.slice(0,10).map(s=>`
     <div style="background:var(--card);border:1px solid ${s.type==='BUY'?'var(--green)':'var(--red)'}33;border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
       <div>
         <div style="font-size:13px;font-weight:700;color:${s.type==='BUY'?'var(--green)':'var(--red)'}">${s.type==='BUY'?'▲ 買入':'▼ 賣出'}</div>
@@ -599,77 +417,64 @@ function addSigLog(type, reason, price) {
     </div>`).join('');
 }
 
-// ── Watch
-async function loadWatch() {
-  const el = document.getElementById('watchList');
-  el.innerHTML = '<div style="color:var(--muted);font-size:12px;text-align:center;padding:20px">載入中...</div>';
-  const results = await Promise.allSettled(
-    WATCHES.map(s => fetch(`https://www.okx.com/api/v5/market/ticker?instId=${s}`).then(r=>r.json()).then(d=>({s,t:d.data[0]})))
-  );
-  el.innerHTML = results.map(r=>{
-    if (r.status!=='fulfilled'||!r.value.t) return '';
-    const {s,t} = r.value;
-    const last = parseFloat(t.last), open = parseFloat(t.open24h);
-    const pct = (last-open)/open*100, up = pct>=0;
-    return `<div class="watch-row" onclick="jumpSym('${s}')">
-      <div>
-        <div style="font-family:'Syne Mono',monospace;font-size:15px;font-weight:600">${s.replace('-USDT','')}</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px">${s}</div>
-      </div>
-      <div style="text-align:right">
-        <div style="font-family:'Syne Mono',monospace;font-size:15px;color:${up?'var(--green)':'var(--red)'}">$${fmt(last)}</div>
-        <div style="font-size:12px;color:${up?'var(--green)':'var(--red)'};margin-top:2px">${up?'+':''}${pct.toFixed(2)}%</div>
-      </div>
+async function loadWatch(){
+  const el=document.getElementById('watchList');
+  el.innerHTML='<div style="color:var(--muted);font-size:12px;text-align:center;padding:20px">載入中...</div>';
+  const results=await Promise.allSettled(WATCHES.map(s=>fetch(`https://www.okx.com/api/v5/market/ticker?instId=${s}`).then(r=>r.json()).then(d=>({s,t:d.data[0]}))));
+  el.innerHTML=results.map(r=>{
+    if(r.status!=='fulfilled'||!r.value.t)return'';
+    const{s,t}=r.value;
+    const last=parseFloat(t.last),open=parseFloat(t.open24h),pct=(last-open)/open*100,up=pct>=0;
+    return`<div class="watch-row" onclick="jumpSym('${s}')">
+      <div><div style="font-family:'Syne Mono',monospace;font-size:15px;font-weight:600">${s.replace('-USDT','')}</div><div style="font-size:11px;color:var(--muted);margin-top:2px">${s}</div></div>
+      <div style="text-align:right"><div style="font-family:'Syne Mono',monospace;font-size:15px;color:${up?'var(--green)':'var(--red)'}">$${fmt(last)}</div><div style="font-size:12px;color:${up?'var(--green)':'var(--red)'};margin-top:2px">${up?'+':''}${pct.toFixed(2)}%</div></div>
     </div>`;
   }).join('');
 }
 
-function jumpSym(s) {
-  sym = s;
-  document.querySelectorAll('.sym-btn').forEach(b=>{
-    b.classList.toggle('active', b.textContent.trim()===s.replace('-USDT',''));
-  });
-  gotoPage('market', document.querySelector('.nbtn'));
+function jumpSym(s){
+  sym=s;
+  document.querySelectorAll('.sym-btn').forEach(b=>b.classList.toggle('active',b.textContent.trim()===s.replace('-USDT','')));
+  gotoPage('market',document.querySelector('.nbtn'));
   document.querySelector('.nbtn').classList.add('active');
-  doTicker(); doCandles();
+  doTicker();doCandles();
 }
 
-// ── Chart
-function drawChart() {
-  const cv = document.getElementById('chart');
-  const ctx = cv.getContext('2d');
-  const dpr = window.devicePixelRatio||1;
-  const W = cv.offsetWidth||window.innerWidth-32, H = 150;
-  cv.width=W*dpr; cv.height=H*dpr;
-  cv.style.width=W+'px'; cv.style.height=H+'px';
-  ctx.scale(dpr,dpr); ctx.clearRect(0,0,W,H);
-  if (!chartData.length) return;
+function drawChart(){
+  const cv=document.getElementById('chart');
+  const ctx=cv.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  const W=cv.offsetWidth||window.innerWidth-32,H=150;
+  cv.width=W*dpr;cv.height=H*dpr;
+  cv.style.width=W+'px';cv.style.height=H+'px';
+  ctx.scale(dpr,dpr);
 
-  const closes = chartData.map(d=>d.c);
+  // 深色背景
+  ctx.fillStyle='#0c1118';
+  ctx.fillRect(0,0,W,H);
+
+  if(!chartData.length)return;
+  const closes=chartData.map(d=>d.c);
   const pad={t:8,b:8,l:4,r:4};
-  const w=W-pad.l-pad.r, h=H-pad.t-pad.b;
-  const mn=Math.min(...closes)*0.999, mx=Math.max(...closes)*1.001;
+  const w=W-pad.l-pad.r,h=H-pad.t-pad.b;
+  const mn=Math.min(...closes)*0.999,mx=Math.max(...closes)*1.001;
   const xOf=i=>pad.l+(i/(chartData.length-1))*w;
   const yOf=v=>pad.t+(1-(v-mn)/(mx-mn))*h;
 
   // Grid
-  ctx.strokeStyle='#1a2336'; ctx.lineWidth=0.5;
-  for (let g=0;g<=3;g++){const y=pad.t+(g/3)*h;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+w,y);ctx.stroke();}
+  ctx.strokeStyle='#182030';ctx.lineWidth=0.5;
+  for(let g=0;g<=3;g++){const y=pad.t+(g/3)*h;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+w,y);ctx.stroke();}
 
-  // MA lines
-  const drawMA=(arr,color)=>{
-    ctx.strokeStyle=color;ctx.lineWidth=1;ctx.setLineDash([3,2]);ctx.beginPath();let s=false;
-    arr.forEach((v,i)=>{if(!v)return;if(!s){ctx.moveTo(xOf(i),yOf(v));s=true;}else ctx.lineTo(xOf(i),yOf(v));});
-    ctx.stroke();ctx.setLineDash([]);
-  };
+  // MA
+  const drawMA=(arr,color)=>{ctx.strokeStyle=color;ctx.lineWidth=1;ctx.setLineDash([3,2]);ctx.beginPath();let s=false;arr.forEach((v,i)=>{if(!v)return;if(!s){ctx.moveTo(xOf(i),yOf(v));s=true;}else ctx.lineTo(xOf(i),yOf(v));});ctx.stroke();ctx.setLineDash([]);};
   drawMA(chartData.map(d=>d.ma5),'#bf5af2cc');
   drawMA(chartData.map(d=>d.ma20),'#ffd60acc');
 
   // Area
-  const up = closes[closes.length-1] >= closes[0];
-  const lc = up?'#00ff9d':'#ff2d55';
-  const grad = ctx.createLinearGradient(0,pad.t,0,pad.t+h);
-  grad.addColorStop(0, up?'#00ff9d30':'#ff2d5530');
+  const up=closes[closes.length-1]>=closes[0];
+  const lc=up?'#00ff9d':'#ff2d55';
+  const grad=ctx.createLinearGradient(0,pad.t,0,pad.t+h);
+  grad.addColorStop(0,up?'#00ff9d35':'#ff2d5535');
   grad.addColorStop(1,'#00000000');
   ctx.fillStyle=grad;
   ctx.beginPath();
@@ -684,12 +489,11 @@ function drawChart() {
   ctx.stroke();
 
   // Labels
-  ctx.fillStyle='#3a4f66';ctx.font='9px monospace';ctx.textAlign='right';
+  ctx.fillStyle='#38506a';ctx.font='9px monospace';ctx.textAlign='right';
   ctx.fillText('$'+fmt(mx,0),W-4,pad.t+9);
   ctx.fillText('$'+fmt(mn,0),W-4,pad.t+h-3);
 }
 
-// ── Indicators math
 function sma(p,n){return p.map((_,i)=>i<n-1?null:p.slice(i-n+1,i+1).reduce((a,b)=>a+b,0)/n);}
 function calcRSI(p,n=14){
   const r=new Array(p.length).fill(null);
@@ -698,22 +502,16 @@ function calcRSI(p,n=14){
   for(let i=1;i<=n;i++){const d=p[i]-p[i-1];d>0?g+=d:l-=d;}
   let ag=g/n,al=l/n;
   r[n]=al===0?100:100-100/(1+ag/al);
-  for(let i=n+1;i<p.length;i++){
-    const d=p[i]-p[i-1];
-    ag=(ag*(n-1)+Math.max(d,0))/n;
-    al=(al*(n-1)+Math.max(-d,0))/n;
-    r[i]=al===0?100:100-100/(1+ag/al);
-  }
+  for(let i=n+1;i<p.length;i++){const d=p[i]-p[i-1];ag=(ag*(n-1)+Math.max(d,0))/n;al=(al*(n-1)+Math.max(-d,0))/n;r[i]=al===0?100:100-100/(1+ag/al);}
   return r;
 }
 
-// ── Start
 window.addEventListener('resize',()=>{if(chartData.length)drawChart();});
 window.addEventListener('load',()=>{
-  doTicker(); doCandles();
-  setInterval(doTicker, 5000);
-  setInterval(doCandles, 30000);
-  setTimeout(loadWatch, 1500);
+  doTicker();doCandles();
+  setInterval(doTicker,5000);
+  setInterval(doCandles,30000);
+  setTimeout(loadWatch,1500);
 });
 </script>
 
